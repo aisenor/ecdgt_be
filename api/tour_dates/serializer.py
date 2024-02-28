@@ -1,12 +1,15 @@
 from rest_framework import serializers
 
-from backend.models.players import Players
+from backend.models.tour_dates import TourDates
 
 
-class PlayersSerializer(serializers.ModelSerializer):
+class TourDatesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Players
+        model = TourDates
         fields = (
             "id",
-            "name"
+            "date",
+            "name",
+            "link",
+            "province"
         )
