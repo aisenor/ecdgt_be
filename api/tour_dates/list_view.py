@@ -39,6 +39,13 @@ from backend.models.tour_dates import TourDates
                 enum=['NS', 'NS', 'PEI', 'NFL'],
                 required=False
             ),
+            openapi.Parameter(
+                name="course",
+                in_=openapi.IN_QUERY,
+                type=openapi.TYPE_STRING,
+                # enum=['NS', 'NS', 'PEI', 'NFL'],
+                required=False
+            ),
         ]
     )
 )
@@ -50,5 +57,4 @@ class TourDatesListView(ListCreateAPIView):
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = self.get_serializer(queryset, many=True)
-        print({'TourDates': serializer.data})
         return Response({'TourDates': serializer.data})

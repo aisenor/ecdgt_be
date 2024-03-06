@@ -7,6 +7,7 @@ class TourDates(models.Model):
     name = models.CharField(max_length=255)
     link = models.CharField(max_length=255, unique=True)
     province = models.CharField(max_length=255)
+    course = models.CharField(max_length=255)
 
     class Meta:
         db_table = 'tour_dates'

@@ -11,5 +11,6 @@ class TourDatesSerializer(serializers.ModelSerializer):
             "date",
             "name",
             "link",
-            "province"
+            "province",
+            "course"
         )

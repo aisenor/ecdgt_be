@@ -1,12 +1,16 @@
 from rest_framework import serializers
 
-from backend.models.players import Players
+from backend.models.tour_standings import TourStandings
 
 
-class PlayersSerializer(serializers.ModelSerializer):
+class TourStandingsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Players
+        model = TourStandings
         fields = (
             "id",
-            "name"
+            "name",
+            "points",
+            "division",
+            "pdga_number",
+            "event"
         )

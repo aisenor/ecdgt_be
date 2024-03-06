@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from django.utils.decorators import method_decorator
 from drf_yasg.utils import swagger_auto_schema
 
-from .serializer import TourDatesSerializer
-from backend.models.tour_dates import TourDates
+from .serializer import DivisionSerializer
+from backend.models.division import Division
 
 @method_decorator(
     name="get",
@@ -13,12 +13,13 @@ from backend.models.tour_dates import TourDates
         operation_description=""
     )
 )
-class TourDatesDetailView(RetrieveUpdateDestroyAPIView):
+class DivisionDetailView(RetrieveUpdateDestroyAPIView):
     http_method_names = ["get", "post"]
-    serializer_class = TourDatesSerializer
-    queryset = TourDates.objects.all()
+    serializer_class = DivisionSerializer
+    queryset = Division.objects.all()
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
-        return Response({'TourDates': serializer.data})
+        print({'divisions': serializer.data})
+        return Response({'divisions': serializer.data})
