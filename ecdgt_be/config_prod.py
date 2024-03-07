@@ -3,5 +3,5 @@ import os
 
 class Config:
     DEBUG = False
-    API_URL = 'https://nova-discs-fcf0d9c53d93.herokuapp.com'
-    DATABASE_URL = 'postgres://hrcspgucoaaufd:f7955cb89479046157d35e42684c37e0fe75b141da14fd2fc653e65509eb9274@ec2-3-232-218-211.compute-1.amazonaws.com:5432/db84t9c5vlfhks'
+    API_URL = 'https://ec-dgt-f08d666ff28e.herokuapp.com'
+    DATABASE_URL = 'postgres://u28g3ov4cldsvh:pfd75ad183a4bff50d6b4ea80c3491b9bed681d59b0eb830146e317d5f6c6e9a9@ceu9lmqblp8t3q.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d8jug0kcjr68ka'
