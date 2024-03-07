@@ -1,8 +1,14 @@
 # backend/admin.py
 
 from django.contrib import admin
-from .models.putting_league import PuttingLeague
-from .models.players import Players
+from .models.player import Player
+from .models.event import Event
+from .models.division import Division
+from .models.standings import Standings
+from .models.event_results import EventResults
 
-admin.site.register(PuttingLeague)
-admin.site.register(Players)
+admin.site.register(Player)
+admin.site.register(Event)
+admin.site.register(Division)
+admin.site.register(Standings)
+admin.site.register(EventResults)

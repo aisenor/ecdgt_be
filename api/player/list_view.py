@@ -4,9 +4,9 @@ from django.utils.decorators import method_decorator
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
-from .serializer import StandingsSerializer
-from .filter import StandingsFilter
-from backend.models.standings import Standings
+from .serializer import PlayerSerializer
+from .filter import PlayerFilter
+from backend.models.player import Player
 
 @method_decorator(
     name="get",
@@ -17,14 +17,14 @@ from backend.models.standings import Standings
         ]
     )
 )
-class StandingsListView(ListCreateAPIView):
-    serializer_class = StandingsSerializer
-    queryset = Standings.objects.all()
-    filterset_class = StandingsFilter
+class PlayerListView(ListCreateAPIView):
+    serializer_class = PlayerSerializer
+    queryset = Player.objects.all()
+    filterset_class = PlayerFilter
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = self.get_serializer(queryset, many=True)
-        print({'standings': serializer.data})
+        print({'player': serializer.data})
 
-        return Response({'standings': serializer.data})
+        return Response({'player': serializer.data})

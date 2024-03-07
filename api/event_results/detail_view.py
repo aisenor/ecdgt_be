@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from django.utils.decorators import method_decorator
 from drf_yasg.utils import swagger_auto_schema
 
-from .serializer import TourStandingsSerializer
-from backend.models.tour_standings import TourStandings
+from .serializer import EventResultsSerializer
+from backend.models.event_results import EventResults
 
 @method_decorator(
     name="get",
@@ -13,13 +13,12 @@ from backend.models.tour_standings import TourStandings
         operation_description=""
     )
 )
-class TourStandingsDetailView(RetrieveUpdateDestroyAPIView):
+class EventResultsDetailView(RetrieveUpdateDestroyAPIView):
     http_method_names = ["get", "post"]
-    serializer_class = TourStandingsSerializer
-    queryset = TourStandings.objects.all()
+    serializer_class = EventResultsSerializer
+    queryset = EventResults.objects.all()
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
-        print({'tour_standings': serializer.data})
-        return Response({'tour_standings': serializer.data})
+        return Response({'event_results': serializer.data})

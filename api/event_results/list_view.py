@@ -4,9 +4,9 @@ from django.utils.decorators import method_decorator
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
-from .serializer import TourStandingsSerializer
-from .filter import TourStandingsFilter
-from backend.models.tour_standings import TourStandings
+from .serializer import EventResultsSerializer
+from .filter import EventResultsFilter
+from backend.models.event_results import EventResults
 
 @method_decorator(
     name="get",
@@ -17,14 +17,14 @@ from backend.models.tour_standings import TourStandings
         ]
     )
 )
-class TourStandingsListView(ListCreateAPIView):
-    serializer_class = TourStandingsSerializer
-    queryset = TourStandings.objects.all()
-    filterset_class = TourStandingsFilter
+class EventResultsListView(ListCreateAPIView):
+    serializer_class = EventResultsSerializer
+    queryset = EventResults.objects.all()
+    filterset_class = EventResultsFilter
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = self.get_serializer(queryset, many=True)
-        print({'tour_standings': serializer.data})
+        print({'event_results': serializer.data})
 
-        return Response({'tour_standings': serializer.data})
+        return Response({'event_results': serializer.data})

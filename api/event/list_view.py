@@ -4,9 +4,9 @@ from django.utils.decorators import method_decorator
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
-from .serializer import TourDatesSerializer
-from .filter import TourDatesFilter
-from backend.models.tour_dates import TourDates
+from .serializer import EventSerializer
+from .filter import EventFilter
+from backend.models.event import Event
 
 @method_decorator(
     name="get",
@@ -21,7 +21,7 @@ from backend.models.tour_dates import TourDates
                 required=False
             ),
             openapi.Parameter(
-                name="name",
+                name="text",
                 in_=openapi.IN_QUERY,
                 type=openapi.TYPE_STRING,
                 required=False
@@ -43,18 +43,17 @@ from backend.models.tour_dates import TourDates
                 name="course",
                 in_=openapi.IN_QUERY,
                 type=openapi.TYPE_STRING,
-                # enum=['NS', 'NS', 'PEI', 'NFL'],
                 required=False
             ),
         ]
     )
 )
-class TourDatesListView(ListCreateAPIView):
-    serializer_class = TourDatesSerializer
-    queryset = TourDates.objects.all()
-    filterset_class = TourDatesFilter
+class EventListView(ListCreateAPIView):
+    serializer_class = EventSerializer
+    queryset = Event.objects.all()
+    filterset_class = EventFilter
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = self.get_serializer(queryset, many=True)
-        return Response({'TourDates': serializer.data})
+        return Response({'event': serializer.data})
