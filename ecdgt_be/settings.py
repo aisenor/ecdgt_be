@@ -37,8 +37,8 @@ if IS_HEROKU_APP:
     from ecdgt_be.config_prod import Config
     ALLOWED_HOSTS = ["*"]
     CORS_ALLOWED_ORIGINS = [
-        "http://nova-discs-halifax.web.app",
-        "https://nova-discs-halifax.web.app",
+        "http://ec-dgt.web.app",
+        "https://ec-dgt.web.app",
     ]
 else:
     from ecdgt_be.config_dev import Config
