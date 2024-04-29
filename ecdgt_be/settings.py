@@ -194,4 +194,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'novadiscsscorecards@gmail.com'  # Your Gmail address
+# Eventually eastcoastdiscgolftour@gmail.com but need a password
 EMAIL_HOST_PASSWORD = 'cjbktyfzkqbffuct'     # Your Gmail password or app password

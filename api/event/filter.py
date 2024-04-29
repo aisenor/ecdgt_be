@@ -9,7 +9,8 @@ class EventFilter(filters.FilterSet):
     province = filters.CharFilter(lookup_expr='contains')
     course = filters.CharFilter(lookup_expr='contains')
     link = filters.CharFilter(lookup_expr='exact')
+    event_type = filters.CharFilter(lookup_expr='exact')
 
     class Meta:
         model = Event
-        fields = ['date', 'text', 'province', 'course', 'link']
+        fields = ['date', 'text', 'province', 'course', 'link', 'event_type']

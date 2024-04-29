@@ -13,4 +13,5 @@ class EventSerializer(serializers.ModelSerializer):
             "province",
             "course",
             "link",
+            "event_type"
         )

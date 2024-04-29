@@ -8,7 +8,6 @@ from api.event.detail_view import EventDetailView
 from api.event.list_view import EventListView
 from api.event_results.detail_view import EventResultsDetailView
 from api.event_results.list_view import EventResultsListView
-from api.standings.detail_view import StandingsDetailView
 from api.standings.list_view import StandingsListView
 from api.division.detail_view import DivisionDetailView
 from api.division.list_view import DivisionListView
@@ -36,5 +35,4 @@ urlpatterns = [
     path('player/', PlayerListView.as_view(), name="player"),
 
     path('standings/', StandingsListView.as_view(), name="standings"),
-    path('standings/<pk>', StandingsDetailView.as_view(), name="standings"),
 ]

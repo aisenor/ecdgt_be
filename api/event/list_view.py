@@ -45,6 +45,14 @@ from backend.models.event import Event
                 type=openapi.TYPE_STRING,
                 required=False
             ),
+            openapi.Parameter(
+                name="event_type",
+                description="Event number of days",
+                in_=openapi.IN_QUERY,
+                type=openapi.TYPE_STRING,
+                enum=[1, 2],
+                required=False
+            ),
         ]
     )
 )
