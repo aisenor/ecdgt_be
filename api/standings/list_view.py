@@ -7,7 +7,7 @@ from django.conf import settings
 from backend.models.event import Event
 
 
-class StandingsListView(APIView):
+class StandingsAPIView(APIView):
     def get(self, request):
         try:
             response = requests.get(f'{settings.API_URL}/event_results/')
