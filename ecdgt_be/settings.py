@@ -40,6 +40,8 @@ if IS_HEROKU_APP:
         "http://ec-dgt.web.app",
         "https://ec-dgt.web.app",
         "http://ecdgt.ca",
+        "https://ecdgt.ca",
+        "http://ecdgt.com",
         "https://ecdgt.com",
     ]
 else:
