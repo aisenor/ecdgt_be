@@ -39,6 +39,8 @@ if IS_HEROKU_APP:
     CORS_ALLOWED_ORIGINS = [
         "http://ec-dgt.web.app",
         "https://ec-dgt.web.app",
+        "http://ecdgt.ca",
+        "https://ecdgt.com",
     ]
 else:
     from ecdgt_be.config_dev import Config
