@@ -31,9 +31,31 @@ def process_data(data):
 def calc_tour_points(event_results):
     tour_points_by_division = {}
 
+    point_system = {
+        1: 25,
+        2: 22,
+        3: 20,
+        4: 18,
+        5: 16,
+        6: 14,
+        7: 13,
+        8: 12,
+        9: 11,
+        10: 10,
+        11: 9,
+        12: 8,
+        13: 7,
+        14: 6,
+        15: 5,
+        16: 4,
+        17: 3,
+        18: 2,
+        "default": 1,
+    }
+
     for result in event_results:
         player_id = result["player"]
-        event_points = int(result["event_points"])
+        event_rank = int(result["event_rank"])
         event_number = result["event"]
         division = result["division"]
 
@@ -56,9 +78,13 @@ def calc_tour_points(event_results):
 
         # Update points based on event type
         if event_type == 1:
-            tour_points_by_division[division][player_id]["event_type_1_points"].append(event_points)
+            tour_points_by_division[division][player_id]["event_type_1_points"].append(
+                point_system.get(event_rank, point_system["default"])
+            )
         elif event_type == 2:
-            tour_points_by_division[division][player_id]["event_type_2_points"].append(event_points)
+            tour_points_by_division[division][player_id]["event_type_2_points"].append(
+                point_system.get(event_rank, point_system["default"])
+            )
 
         for division, players in tour_points_by_division.items():
             for player_id, data in players.items():
