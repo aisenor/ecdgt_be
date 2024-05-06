@@ -11,6 +11,5 @@ class EventResultsSerializer(serializers.ModelSerializer):
             "player",
             "event",
             "event_rank",
-            "event_points",
             "division"
         )

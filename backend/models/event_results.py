@@ -10,7 +10,6 @@ class EventResults(models.Model):
     player = models.ForeignKey(Player, on_delete=models.DO_NOTHING)
     event = models.ForeignKey(Event, on_delete=models.DO_NOTHING)
     event_rank = models.CharField(max_length=255)
-    event_points = models.CharField(max_length=255)
     division = models.ForeignKey(Division, on_delete=models.DO_NOTHING)
 
     class Meta:
